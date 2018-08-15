@@ -30,13 +30,13 @@ class SplashBase extends React.Component<Props> {
             authKey: 'this is where the value is stored'
         })
 
-        console.log(this.props.authKey)
+        setTimeout(() => console.log(this.props.authKey), 1000)
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>Welcome to React Native!</Text>
+                <Text style={styles.welcome}>{this.props.authKey}</Text>
                 <Text style={styles.instructions}>To get started, edit App.js</Text>
                 <Text style={styles.instructions}>{instructions}</Text>
             </View>

@@ -8,7 +8,9 @@ import {FormState} from "../reducers/formReducerCreator";
 import {activityReducer} from "../../src/splash/signInApi";
 
 interface ReducersAugment {
-    signIn: SignInAction
+    signIn: {
+        signInDetails : SignInAction
+    }
     formStatus: {
         activity: FormState
     }
@@ -16,7 +18,7 @@ interface ReducersAugment {
 
 const appReducers = combineReducers({
     signIn: combineReducers({
-        signInDetailsReducer
+        signInDetails: signInDetailsReducer
     }),
     formStatus: combineReducers({
         activity: activityReducer

@@ -49,6 +49,6 @@ export const signInDetailsReducer = (state = initialState, action: SignInAction)
  */
 export const signInDetailsSelector = (state: State) => {
     return {
-        authKey: state.signIn.authKey
+        authKey: state.signIn.signInDetails.authKey
     }
 }

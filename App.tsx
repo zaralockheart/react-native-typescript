@@ -7,30 +7,39 @@
  */
 
 import React, {Component} from 'react';
-import {PortalProvider} from "react-native-portal";
+import {PortalProvider, WhitePortal} from "react-native-portal";
 import {Provider} from "react-redux";
 import {persistor, store} from "./util/redux/rootStore";
 import {PersistGate} from "redux-persist/integration/react";
 import {Routes} from "./util/routes/Routes";
 import {BackgroundService} from "./util/routes/BackgroundService";
+import {Fragment} from "./src/components/Fragment";
+import {View} from "react-native";
 
 type Props = {};
-export default class App extends Component<Props> {
+
+class AppBase extends Component<Props> {
     render() {
         return (
             <PortalProvider>
                 <Provider store={store}>
                     <PersistGate
-                        loading={null}
-                        onBeforeLift={() => {
-                        }}
-                        persistor={persistor}>
-                        <Routes {...this.props}/>
-                        {/*<BackgroundService />*/}
+                        onBeforeLift={() => null}
+                        persistor={persistor}
+                        loading={
+                            <View style={{ flex: 1, backgroundColor: 'white' }} />
+                        }
+                    >
+                        <Fragment>
+                            <Routes {...this.props} />
+                            <BackgroundService {...this.props} />
+                        </Fragment>
                     </PersistGate>
-                    <BackgroundService/>
                 </Provider>
+                {/*<WhitePortal name={'default'} />*/}
             </PortalProvider>
         );
     }
 }
+
+export const App = AppBase as React.ComponentClass<Props>

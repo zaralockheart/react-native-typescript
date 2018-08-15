@@ -23,7 +23,7 @@ export interface ActivitySubmit {
 class ActivityApi extends BaseFormApi {
     get = async (data: ActivityGet, state: State) => {
         try {
-            const option = header({key: state.signIn.authKey})
+            const option = header({key: state.signIn.signInDetails.authKey})
             return await ajax.get("END_POINT_ACTIVITY_GET", option)
         } catch (err) {
             console.log('ActivityApi error:', err)
@@ -33,7 +33,7 @@ class ActivityApi extends BaseFormApi {
 
     submit = async (data: ActivitySubmit, state: State) => {
         try {
-            const option = header({key: state.signIn.authKey})
+            const option = header({key: state.signIn.signInDetails.authKey})
             const payload: ActivitySubmit = {
                 someParam: "value"
             }

@@ -2,9 +2,9 @@ import {getNamespacedType as utilGetNamespacedType} from '../reduxTools'
 import {Action} from 'redux'
 import * as _ from 'lodash'
 import {AxiosError} from 'axios'
-import {RESP_CODE_SUCCESS} from '../appconfig'
-import {GetState, persistor} from "../redux/rootStore";
+import {persistor, State} from "../redux/rootStore";
 import {BaseFormApi} from "./BaseFormApi";
+import {RESP_CODE_SUCCESS} from "../appConfig";
 
 export const FORM_GET = 'FORM_GET'
 export const FORM_GET_SUCCESS = 'FORM_GET_SUCCESS'
@@ -104,7 +104,7 @@ export class FormActionsCreator<GET_RESPONSE = any,
 
     get = (data?: GET_PAYLOAD): Promise<GET_RESPONSE> | any => async (
         dispatch: Dispatch<D>,
-        getState: GetState
+        getState: State
     ) => {
         dispatch({type: this.getNamespacedType(FORM_GET)})
         try {
@@ -125,7 +125,7 @@ export class FormActionsCreator<GET_RESPONSE = any,
 
     submit = (data: SUBMIT_PAYLOAD): Promise<SUBMIT_RESPONSE> | any => async (
         dispatch: Dispatch<D>,
-        getState: GetState
+        getState: State
     ) => {
         dispatch({type: this.getNamespacedType(FORM_SUBMIT)})
         let submitResult = null
