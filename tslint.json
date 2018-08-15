@@ -1,0 +1,43 @@
+//{
+//    "defaultSeverity": "error",
+//    "extends": [
+//        "tslint:recommended"
+//    ],
+//    "jsRules": {},
+//    "rules": {},
+//    "rulesDirectory": []
+//}
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-airbnb",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "member-access": false,
+    "object-literal-sort-keys": false,
+    "variable-name": false,
+    "ordered-imports": false,
+    "array-type": false,
+    "import-name": false,
+    "interface-name": false,
+    "no-reference": false,
+    "object-shorthand-properties-first": false,
+    "no-default-export": true,
+    "no-console": false,
+    "prefer-conditional-expression": true,
+    "max-classes-per-file": [],
+    "no-increment-decrement": false,
+    "jsx-key": [
+      "true"
+    ],
+    "jsx-no-lambda": false,
+    "jsx-boolean-value": false,
+    "no-submodule-imports": false,
+    "no-duplicate-imports": false,
+    "only-arrow-functions": true,
+    "no-var-requires": false,
+    "no-empty-interface": false,
+  }
+}

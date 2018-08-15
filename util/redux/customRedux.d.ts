@@ -1,0 +1,3 @@
+interface Redux {
+    type?: any
+}
